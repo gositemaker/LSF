@@ -27,7 +27,7 @@
   --danger: #dc3545;
   --light: #ECF4FF;
   --dark: #120F2D;
-  --breakpoint-xs: 0;
+  --breakpoint-xs: 576;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
@@ -35,6 +35,9 @@
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
+/* * {
+  outline: 1px solid red; /* This will visually show boundaries */
+
 
 *,
 *::before,

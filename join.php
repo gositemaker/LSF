@@ -105,7 +105,7 @@
             <h1 class="display-4"><text style="color: rgb(190, 52, 52);">Step</text> with us</h1>
         </div>
         <div class="contact-form">
-            <form action="user.php" method="POST">
+            <form id="formB" action="user.php" method="POST">
                 <div class="row">
                     <div class="col-md-6 form-group">
                         <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name" name="name" required>
@@ -120,16 +120,16 @@
                 <div class="form-row">
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <select class="custom-select bg-light border-0 px-0 " style="height: 60px; width: 305px; margin-left: 15px;">
+                                    <select class="custom-select bg-light border-0 px-0 " style="height: 60px; width: 305px; margin-left: 15px;" id="groupB">
                                         <option selected>Select Blood Group</option>
-                                        <option value="1" name="bld">O+</option>
-                                        <option value="2" name="bld">O-</option>
-                                        <option value="3" name="bld">A+</option>
-                                        <option value="4" name="bld">A-</option>
-                                        <option value="5" name="bld">B+</option>
-                                        <option value="6" name="bld">B-</option>
-                                        <option value="7" name="bld">AB+</option>
-                                        <option value="8" name="bld">AB-</option>
+                                        <option value="O+" >O+</option>
+                                        <option value="O-" >O-</option>
+                                        <option value="A+" >A+</option>
+                                        <option value="A-" >A-</option>
+                                        <option value="B+" >B+</option>
+                                        <option value="B-" >B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
                                     </select>
                                 </div>
                        </div>  
@@ -156,63 +156,79 @@
 
 
     <!-- Footer Start -->
-    <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5">
-        <div class="container mt-2 pt-2">
-            <div class="row">
-                <div class="col-md-6 mb-5">
-                    <a href="index.html" class="navbar-brand">
-                        <h1 class="mt-n2 text-uppercase text-white"><i class="fa fa-book-reader mr-3"></i>Life Saviour Foundation</h1>
-                    </a>
-                    <p class="m-0">A society where compassion leads the way — where donors step forward without hesitation, and every patient receives the support they need to survive and heal.</p>
-                </div>
-              
-            </div>
-            <div class="row">
-                <div class="col-md-4 mb-5">
-                    <h3 class="text-white mb-4">Get In Touch</h3>
-                    <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
-                    <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                    <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
-                    <div class="d-flex justify-content-start mt-4">
-                        <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-twitter"></i></a>
-                        <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-facebook-f"></i></a>
-                        <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-linkedin-in"></i></a>
-                        <a class="text-white" href="#"><i class="fab fa-2x fa-instagram"></i></a>
-                    </div>
-                </div>
-      <div class="col-md-4 mb-5"></div>
-                <div class="col-md-4 mb-5">
-                    <h3 class="text-white mb-4">Quick Links</h3>
-                    <div class="d-flex flex-column justify-content-start">
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Privacy Policy</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Terms & Condition</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Regular FAQs</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Help & Support</a>
-                        <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Contact</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+   <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">
+  <div class="container mt-5 pt-5">
+    <div class="row">
+      <!-- Logo & Description -->
+      <div class="col-12 col-md-6 mb-4">
+        <a href="index.html" class="navbar-brand">
+          <h1 class="mt-n2 text-uppercase text-white text-wrap" style="word-break: break-word; font-size: 1.4rem;">
+            <i class="fa fa-book-reader mr-2"></i>Life Saviour Foundation
+          </h1>
+        </a>
+        <p class="m-0">
+          A society where compassion leads the way — where donors step forward without hesitation,
+          and every patient receives the support they need to survive and heal.
+        </p>
+      </div>
     </div>
-    <div class="container-fluid bg-dark text-white-50 border-top py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
-                    <p class="m-0">Copyright &copy; <a class="text-white" href="#">Your Site Name</a>. All Rights Reserved.
-                    </p>
-                </div>
-                <div class="col-md-6 text-center text-md-right">
-                    <p class="m-0">Designed by <a class="text-white" href="https://gositemaker.com">GoSite Maker</a>
-                </div>
-            </div>
+
+    <div class="row">
+      <!-- Contact Info -->
+      <div class="col-12 col-md-4 mb-5">
+        <h3 class="text-white mb-4">Get In Touch</h3>
+        <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+        <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+        <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+        <div class="d-flex justify-content-start mt-4">
+          <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-twitter"></i></a>
+          <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-facebook-f"></i></a>
+          <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-linkedin-in"></i></a>
+          <a class="text-white" href="#"><i class="fab fa-2x fa-instagram"></i></a>
         </div>
+      </div>
+
+      <!-- Spacer (Optional) -->
+      <div class="col-12 col-md-4 mb-5"></div>
+
+      <!-- Quick Links -->
+      <div class="col-12 col-md-4 mb-5">
+        <h3 class="text-white mb-4">Quick Links</h3>
+        <div class="d-flex flex-column justify-content-start">
+          <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Privacy Policy</a>
+          <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Terms & Condition</a>
+          <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Regular FAQs</a>
+          <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Help & Support</a>
+          <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Contact</a>
+        </div>
+      </div>
     </div>
-    <!-- Footer End -->
+  </div>
+</div>
 
+<!-- Copyright -->
+<div class="container-fluid bg-dark text-white-50 border-top py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+        <p class="m-0">
+          Copyright &copy; <a class="text-white" href="#">Your Site Name</a>. All Rights Reserved.
+        </p>
+      </div>
+      <div class="col-md-6 text-center text-md-right">
+        <p class="m-0">
+          Designed by <a class="text-white" href="https://gositemaker.com">GoSite Maker</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top">
+  <i class="fa fa-angle-double-up"></i>
+</a>
+<!-- Footer End -->
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
