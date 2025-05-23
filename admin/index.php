@@ -1,82 +1,120 @@
 <?php
-// index.php - Admin Dashboard Main Layout with Sidebar
-include 'db.php';
+session_start();
+
+// 🔐 Check if already logged in
+if (isset($_SESSION['username'])) {
+    header("Location: admin.php");
+    exit;
+}
+
+// 🧠 Handle login form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Replace this with DB check if needed
+    if ($username == "admin" && $password == "admin123") {
+        $_SESSION['username'] = $username;
+        header("Location: admin.php");
+        exit;
+    } else {
+        $error = "Invalid username or password.";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            display: flex;
-            height: 100vh;
-            background-color: #f8f9fa;
-        }
-        .sidebar {
-            width: 250px;
-            background: #343a40;
-            color: white;
-            padding: 20px;
-        }
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .sidebar a:hover {
-            background: #495057;
-        }
-        .content {
-            flex-grow: 1;
-            padding: 30px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    /* Same styles as before */
+      <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to right, #2980b9, #6dd5fa);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .login-container label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+      font-weight: bold;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2980b9;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .login-container button:hover {
+      background-color: #2573a6;
+    }
+
+    .login-container p {
+      text-align: center;
+      margin-top: 15px;
+      color: #666;
+      font-size: 14px;
+    }
+
+  </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h4>Admin Panel</h4>
-        <a href="add_user.php"><i class="fas fa-user-plus"></i> Add User</a>
-        <a href="approve_users.php"><i class="fas fa-user-check"></i> Approve Users</a>
-        <a href="add_patient.php"><i class="fas fa-notes-medical"></i> Add Patient</a>
-        <a href="approve_patients.php"><i class="fas fa-file-medical"></i> Approve Patients</a>
-        <a href="index.php"><i class="fas fa-chart-bar"></i> Dashboard</a>
-    </div>
-    <div class="content">
-        <h2>Welcome to Admin Dashboard</h2>
-        <canvas id="myChart" height="100"></canvas>
-        <?php
-            $user_count = $conn->query("SELECT COUNT(*) AS total FROM users")->fetch_assoc()['total'];
-            $group_result = $conn->query("SELECT blood_group, COUNT(*) as count FROM users GROUP BY blood_group");
+  <div class="login-container">
+    <h2>Login</h2>
+    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
 
-            $labels = [];
-            $data = [];
-            while ($row = $group_result->fetch_assoc()) {
-                $labels[] = $row['blood_group'];
-                $data[] = $row['count'];
-            }
-        ?>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            const ctx = document.getElementById('myChart').getContext('2d');
-            const chart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: <?php echo json_encode($labels); ?>,
-                    datasets: [{
-                        label: 'Users per Blood Group',
-                        data: <?php echo json_encode($data); ?>,
-                        backgroundColor: 'rgba(54, 162, 235, 0.6)'
-                    }]
-                }
-            });
-        </script>
-    </div>
+    <form method="POST">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
 </body>
 </html>

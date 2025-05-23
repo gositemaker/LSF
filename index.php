@@ -77,7 +77,7 @@
                     <a href="team.html" class="nav-item nav-link">Members</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="join.php" class="btn btn-danger btn-pills border-primary py-2 px-4">Join Us</a>
+                <a href="#join" class="btn btn-danger btn-pills border-primary py-2 px-4">Join Us</a>
             </div>
         </nav>
     </div>
@@ -246,64 +246,66 @@
             </div>
         </div>
        <div class="row justify-content-center bg-image mx-0 mb-5">
-  <div class="col-lg-6 py-5">
+  <div class="col-lg-6 py-5" id="join">
     <div class="bg-white p-5 my-5">
       <h1 class="text-center mb-4">Become a member</h1>
-      <form id="formA">
-        <div class="form-row">
-          <div class="form-group col-sm-6">
-            <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="padding: 30px 20px;" name="nameA" required>
-          </div>
-          <div class="form-group col-sm-6">
-            <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="padding: 30px 20px;" name="emailA">
-          </div>
+        <div class="container py-1 border border-primary" style="max-width: 800px; ">
+            <div class="section-title text-center mb-4">
+            
+                <h1 class="display-4"><text style="color: rgb(190, 52, 52);">Step</text> with us</h1>
+            </div>
+            <div class="contact-form">
+                <form id="formB" action="" method="POST">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name" name="name" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="email" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Email" name="email" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="number" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Phone Number" name="number" required>
+                        </div>
+                
+                    <div class="form-row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <select class="custom-select bg-light border-0 px-0 " style="height: 60px; width: 305px; margin-left: 15px;" id="groupB">
+                                            <option selected>Select Blood Group</option>
+                                            <option value="O+" >O+</option>
+                                            <option value="O-" >O-</option>
+                                            <option value="A+" >A+</option>
+                                            <option value="A-" >A-</option>
+                                            <option value="B+" >B+</option>
+                                            <option value="B-" >B-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                        </select>
+                                    </div>
+                        </div>  
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                                <label for="formFile" class="form-label">Upload your Image</label>
+                                <input class="form-control" type="file" id="formFile" name="dp">
+                            </div>
+                            <div class="mb-3">
+                                    <label for="formFile" class="form-label">Upload proof of Blood group</label>
+                                    <input class="form-control" type="file" id="formFile" name="proof">
+                                </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary py-3 px-5" type="submit" name="submit">Join Now</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="form-row">
-          <div class="form-group col-sm-6">
-            <input type="tel" class="form-control bg-light border-0" placeholder="Your Phone Number" style="padding: 30px 20px;" required name="phoneA">
-          </div>
-          <div class="form-group col-sm-6">
-            <select class="custom-select bg-light border-0 px-3 w-100" style="height: 60px;" id="groupA">
-              <option selected>Select Blood Group</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="col-sm-12">
-            <button class="btn btn-primary btn-block" type="submit" style="height: 60px;" onclick="copyData()" href="join.php">Join Now</button>
-          </div>
-        </div>
-      </form>
     </div>
   </div>
 </div>
 
     <!-- Courses End -->
 
-<!--copy code-->
 
-<script>
-  function copyData() {
-    // Get values from Form A
-    const name = document.getElementById('nameA').value;
-    const email = document.getElementById('emailA').value;
-    const phone = document.getElementById('phoneA').value;
-    const blood = document.getElementById('groupA').value;
-    // Set values in Form B
-    document.getElementById('name').value = name;
-    document.getElementById('email').value = email;
-    document.getElementById('phone').value = phone;
-    document.getElementById('groupB').value = blood;
-  }
-</script>
 
 
 
@@ -577,3 +579,45 @@
 </body>
 
 </html>
+
+<?php
+$conn = new mysqli("localhost", "root", "", "lsf");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_POST['submit'])) {
+    // Prepare the insert statement with placeholders
+
+
+
+    $stmt = $conn->prepare("INSERT INTO users (name, email, phone, blood_group, blood_group_proof, profile_image) VALUES (?, ?, ?, ?, ?, ?)");
+
+    if (!$stmt) {
+        echo "Prepare failed: " . $conn->error;
+        exit;
+    }
+
+    // Bind the parameters: 6 strings
+    $stmt->bind_param(
+        "ssssss",
+        $_POST['name'],
+        $_POST['email'],
+        $_POST['number'],
+        $_POST['groupB'],
+        $_POST['proof'],
+        $_POST['dp']
+    );
+
+    // Execute and handle response
+  if ($stmt->execute()) {
+    echo "<script>alert('You joined successfully!');</script>";
+
+
+    } else {
+        echo "<p style='color: red;'>Error: " . $stmt->error . "</p>";
+    }
+
+    $stmt->close();
+}
+?>
