@@ -1,3 +1,6 @@
+<?php
+include 'admin/db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,11 +74,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="index.php" class="nav-item nav-link active">Home</a>
+                    <a href="#about" class="nav-item nav-link">About</a>
                     <a href="story.html" class="nav-item nav-link">Story</a>
-                    <a href="team.html" class="nav-item nav-link">Members</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="#member" class="nav-item nav-link">Members</a>
+                    <a href="#contact" class="nav-item nav-link">Contact</a>
                 </div>
                 <a href="#join" class="btn btn-danger btn-pills border-primary py-2 px-4">Join Us</a>
             </div>
@@ -96,7 +99,7 @@
 
 
     <!-- About Start -->
-   <div class="container-fluid py-5">
+   <div class="container-fluid py-5" id="about">
   <div class="container py-5">
     <div class="row">
       <!-- Image Column -->
@@ -159,92 +162,27 @@
                 </div>
             </div>
         </div>
-        <div class="owl-carousel courses-carousel">
-            <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-1.jpg" alt=""style="height: 300px; width: 100%; object-fit: cover;">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Blood donation Camp in Forbesganj</h4>
-                    <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Hindustan Times</span>
-                        </div>
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="story.html">Read News</a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-item position-relative">
-                <img class="img-fluid mh-50" src="img/courses-2.jpg" alt="" style="height: 300px; width: 100%; object-fit: cover;">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Blood donation Camp in Araria</h4>
-                    <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Hindustan Times</span>
-                        </div>
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="story.html">Read News</a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-item position-relative">
-                <img class="img-fluid mh-50" src="img/courses-3.jpg" alt="" style="height: 300px; width: 100%; object-fit: cover;">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Blood donation Camp in Forbesganj</h4>
-                    <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Hindustan Times</span>
-                        </div>
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="detail.html">Read News</a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-item position-relative">
-                <img class="img-fluid mh-50" src="img/courses-4.jpg" alt="" style="height: 300px; width: 100%; object-fit: cover;">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Blood donation Camp in Forbesganj</h4>
-                    <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Hindustan Times</span>
-                        </div>
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="detail.html">Read News</a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-item position-relative">
-                <img class="img-fluid mh-50" src="img/courses-5.jpg" alt="" style="height: 300px; width: 100%; object-fit: cover;">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Blood donation Camp in Forbesganj</h4>
-                    <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Hindustan times</span>
-                        </div>
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="detail.html">Read news</a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-item position-relative">
-                <img class="img-fluid mh-50" src="img/courses-6.jpg" alt="" style="height: 300px; width: 100%; object-fit: cover;">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Blood donation Camp in Forbesganj</h4>
-                    <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Hindustan times</span>
-                        </div>
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="detail.html">Read news</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
+   <div class="owl-carousel courses-carousel">
+<?php
+$sql = "SELECT id, title, images FROM blogs ORDER BY id DESC";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo '<div class="courses-item position-relative">';
+        echo '<img class="img-fluid" src="admin/' . $row['images'] . '" alt="" style="height: 300px; width: 100%; object-fit: cover;">';
+        echo '<div class="courses-text">';
+        echo '<h4 class="text-center text-white px-3">' . $row['title'] . '</h4>';
+        echo '<div class="w-100 bg-white text-center p-4">';
+        echo '<a class="btn btn-primary" href="story.php?id=' . $row['id'] . '">Read News</a>';
+        echo '</div></div></div>';
+    }
+} else {
+    echo '<p class="text-center text-muted">No news found.</p>';
+}
+?>
+</div>
+
        <div class="row justify-content-center bg-image mx-0 mb-5">
   <div class="col-lg-6 py-5" id="join">
     <div class="bg-white p-5 my-5">
@@ -310,7 +248,7 @@
 
 
     <!-- Team Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="member">
         <div class="container py-5">
             <div class="section-title text-center position-relative mb-5">
                 <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Members</h6>
@@ -423,7 +361,7 @@
 
 
     <!-- Contact Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="contact">
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-5 mb-5 mb-lg-0">
@@ -576,6 +514,23 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    $('.courses-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: true,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        responsive: {
+            0: { items: 1 },
+            576: { items: 2 },
+            992: { items: 3 }
+        }
+    });
+</script> -->
 </body>
 
 </html>

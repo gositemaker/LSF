@@ -82,16 +82,13 @@ if (isset($_POST['logout'])) {
     <input type="text" name="name" placeholder="Full Name" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="text" name="phone" placeholder="Phone">
-    
-    <label>Blood Group</label>
     <input type="text" name="blood_group" placeholder="Blood Group">
-    <label>Blood Group Proof (file path or URL)</label>
-    <input type="text" name="blood_group_proof" placeholder="Blood Group Proof">
 
-    <label>Profile Image URL or Path</label>
-    <input type="text" name="profile_image" placeholder="Profile Image URL or Path">
+    <input type="file" name="blood_group_proof" placeholder="Blood Group Proof">
 
-    <label>User Type</label>
+    <input type="file" id="im" name="profile_image">
+   
+   
     <select name="user_type" required>
         <option value="">--Select User Type--</option>
         <option value="donor">Donor</option>
@@ -100,7 +97,7 @@ if (isset($_POST['logout'])) {
         <option value="member">Member</option>
     </select>
 
-    <label>Gender</label>
+  
     <select name="gender">
         <option value="">--Select Gender--</option>
         <option value="male">Male</option>

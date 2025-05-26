@@ -132,7 +132,7 @@ if (isset($_POST['logout'])) {
 ?>
     </div>
     <div class="container mt-5">
-    <h3 class="mb-4 text-center">User Management</h3>
+        <h3 class="mb-4 text-center">User Management</h3>
 
     <!-- Tabs -->
     <ul class="nav nav-tabs" id="memberTabs" role="tablist">
@@ -205,9 +205,9 @@ if (isset($_POST['logout'])) {
         <div class="tab-pane fade" id="view" role="tabpanel">
             <div class="card shadow">
                 <div class="card-body">
-<?php if (isset($_GET['deleted'])): ?>
-    <div class="alert alert-success">Member deleted successfully!</div>
-<?php endif; ?>
+             <?php if (isset($_GET['deleted'])): ?>
+              <div class="alert alert-success">Member deleted successfully!</div>
+              <?php endif; ?>
 
                     <table class="table table-bordered table-striped">
                         <thead class="table-dark">
