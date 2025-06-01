@@ -48,31 +48,30 @@ if (!isset($_SESSION['username'])) {
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h4>Admin Panel</h4>
-        <a href="users.php"><i class="fas fa-user-plus"></i> Add User</a>
-        <a href="member.php"><i class="fas fa-user-plus"></i> Members</a>
-        <a href="campaigns.php"><i class="fas fa-user-check"></i>Campaign</a>
-        <a href="patients.php"><i class="fas fa-file-medical"></i> Patients</a>
-        <a href="donors.php"><i class="fas fa-chart-bar"></i>Donor </a>
-        <a href="blogs.php"><i class="fas fa-chart-bar"></i>Blogs </a>
-        <a href="admin.php"><i class="fas fa-chart-bar"></i> Dashboard</a>
-       <form method="POST" style="margin-top: 20px;">
-    <button type="submit" name="logout" class="btn btn-danger w-100">
-        <i class="fas fa-sign-out-alt"></i> Logout
-    </button>
-</form>
-
-<?php
+ <div class="sidebar">
+    <h4>Admin Panel</h4>
+    <a href="users.php"><i class="fas fa-user-plus"></i> Add User</a>
+    <a href="member.php"><i class="fas fa-user"></i> Members</a>
+    <a href="campaigns.php"><i class="fas fa-bullhorn"></i> Campaigns</a>
+    <a href="patients.php"><i class="fas fa-file-medical"></i> Patients</a>
+    <a href="donors.php"><i class="fas fa-hand-holding-medical"></i> Donors</a>
+    <a href="blogs.php"><i class="fas fa-blog"></i> Blogs</a>
+    <a href="admin.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <form method="POST" style="margin-top: 20px;">
+        <button type="submit" name="logout" class="btn btn-danger w-100">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </form>
+    <!-- // Handle logout -->
+    <?php
 if (isset($_POST['logout'])) {
     session_unset();
     session_destroy();
     echo '<script>window.location.replace("index.php");</script>';
     exit;
 }
-
 ?>
-    </div>
+</div>
     <div class="content">
         <h2>Welcome to Admin Dashboard</h2>
         <canvas id="myChart" height="100"></canvas>

@@ -38,11 +38,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssssss", $name, $email, $phone, $password, $address, $role, $Approved_By, $profile_pic);
 
     if ($stmt->execute()) {
-        $message = "<div class='alert alert-success'>User added successfully!</div>";
+    $_SESSION['message']= "<div class='alert alert-success'>User added successfully!</div>";
+    
+  
     } else {
-        $message = "<div class='alert alert-danger'>Error: " . $stmt->error . "</div>";
+        $_SESSION['message']= "<div class='alert alert-danger'>Error: " . $stmt->error . "</div>";
     }
-
+ header("Location: member.php#add"); 
+   exit();
     $stmt->close();
 }
 }
@@ -107,22 +110,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-   <div class="sidebar">
-        <h4>Admin Panel</h4>
-        <a href="users.php"><i class="fas fa-user-plus"></i> Add User</a>
-        <a href="member.php"><i class="fas fa-user-plus"></i> Members</a>
-        <a href="campaigns.php"><i class="fas fa-user-check"></i>Campaign</a>
-        <a href="patients.php"><i class="fas fa-file-medical"></i> Patients</a>
-        <a href="donors.php"><i class="fas fa-chart-bar"></i>Donor </a>
-        <a href="blogs.php"><i class="fas fa-chart-bar"></i>Blogs </a>
-        <a href="admin.php"><i class="fas fa-chart-bar"></i> Dashboard</a>
-       <form method="POST" style="margin-top: 20px;">
-    <button type="submit" name="logout" class="btn btn-danger w-100">
-        <i class="fas fa-sign-out-alt"></i> Logout
-    </button>
-</form>
-
-<?php
+ <div class="sidebar">
+    <h4>Admin Panel</h4>
+    <a href="users.php"><i class="fas fa-user-plus"></i> Add User</a>
+    <a href="member.php"><i class="fas fa-user"></i> Members</a>
+    <a href="campaigns.php"><i class="fas fa-bullhorn"></i> Campaigns</a>
+    <a href="patients.php"><i class="fas fa-file-medical"></i> Patients</a>
+    <a href="donors.php"><i class="fas fa-hand-holding-medical"></i> Donors</a>
+    <a href="blogs.php"><i class="fas fa-blog"></i> Blogs</a>
+    <a href="admin.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <form method="POST" style="margin-top: 20px;">
+        <button type="submit" name="logout" class="btn btn-danger w-100">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </form>
+    <!-- // Handle logout -->
+    <?php
 if (isset($_POST['logout'])) {
     session_unset();
     session_destroy();
@@ -130,7 +133,7 @@ if (isset($_POST['logout'])) {
     exit;
 }
 ?>
-    </div>
+</div>
     <div class="container mt-5">
         <h3 class="mb-4 text-center">User Management</h3>
 
@@ -150,10 +153,17 @@ if (isset($_POST['logout'])) {
         <div class="tab-pane fade show active" id="add" role="tabpanel">
             <div class="card shadow">
                 <div class="card-body">
-                    <?php echo $message; ?>
+                  <?php
+                      if (isset($_SESSION['message'])) {
+                       echo $_SESSION['message'];
+                      unset($_SESSION['message']);
+                           }
+                     ?>  
+
+
                     <form method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="add_user" value="1">
-                        <div class="row mb-3">
+                        <div class="row mb-2">
                             <div class="col">
                                 <label>Name</label>
                                 <input type="text" name="name" class="form-control" required>

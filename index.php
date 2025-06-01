@@ -254,20 +254,24 @@ if ($result->num_rows > 0) {
                 <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Members</h6>
                 <h1 class="display-4">Meet Our Saviours</h1>
             </div>
-            <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="img/courses-1.jpg" alt="" style="height: 300px; width: 100%; object-fit: cover;">
-                    <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Falana Singh</h5>
-                        <p class="mb-2">Donated 2 Units</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
+            
+             <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
+                <?php
+                $sql = "SELECT id , name, profile_pic, role FROM members order by id desc";
+                $result= $conn->query($sql);
+                if($result->num_rows>0){
+                    while($row=$result->fetch_assoc()){
+                   echo '<div class="team-item">';
+                  echo '<img class="img-fluid w-100" src="admin/' .$row['profile_pic'] .' "alt="" style="height: 300px; width: 100%; object-fit: cover;">';
+                  echo '<div class="bg-light text-center p-4">';
+                   
+                  echo '<h5 class="mb-3"> ' .$row['name'] . '</h5>';
+                  echo '<p class="mb-2">' .$row['role'] . '</p>';
+                    echo '</div></div>';
+                }}
+             ?>
+                      
+                  <!-- </div>
                 </div>
                 <div class="team-item">
                     <img class="img-fluid w-100" src="img/courses-2.jpg" alt="" style="height: 300px; width: 100%; object-fit: cover;">
@@ -310,7 +314,9 @@ if ($result->num_rows > 0) {
                             <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
-                </div>
+                </div>-->
+            
+             </div>
             </div>
         </div>
     </div>
